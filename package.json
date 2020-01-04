@@ -11,11 +11,16 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "storybook": "cross-env NODE_ENV=production start-storybook",
+    "build-storybook": "cross-env NODE_ENV=production build-storybook -s public"
   },
   "dependencies": {
+    "@storybook/addon-knobs": "^5.2.8",
     "babel-plugin-styled-components": "^1.10.6",
+    "cross-env": "^6.0.3",
     "gatsby": "^2.18.12",
+    "gatsby-plugin-exclude": "^1.0.2",
     "gatsby-plugin-manifest": "^2.2.34",
     "gatsby-plugin-offline": "^3.0.30",
     "gatsby-plugin-react-helmet": "^3.1.18",
@@ -33,6 +38,12 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/react": "^5.2.8",
+    "babel-loader": "^8.0.6",
     "prettier": "^1.19.1"
   },
   "repository": {
