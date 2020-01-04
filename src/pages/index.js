@@ -3,31 +3,19 @@ import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Post from "../components/post"
 
 const ThemedLink = styled.div`
-  a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-  }
 `
 
 export default ({ data }) => (
   <Layout>
-    <SEO title="Hello there"/>
+    <SEO title="Hello there" />
     <ThemedLink>
-      <Link to="/about/">About</Link>
       <div>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
-            <Link to={node.fields.slug}>
-              <h3>
-                {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
-              </h3>
-              <p>{node.excerpt}</p>
-            </Link>
-          </div>
+          <Post node={node} key={node.id}/>
         ))}
       </div>
     </ThemedLink>
@@ -43,10 +31,13 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "DD MMMM YYYY", locale: "fr")
           }
           fields {
             slug
+            readingTime {
+                minutes
+            }
           }
           excerpt
         }
