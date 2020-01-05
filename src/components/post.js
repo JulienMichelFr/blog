@@ -55,7 +55,7 @@ const Post = ({ node }) => {
         <h3>
           {node.frontmatter.title}
         </h3>
-        <p>{node.excerpt}</p>
+        <p>{node.frontmatter.resume || node.excerpt}</p>
         <div className="duration"> <AiOutlineClockCircle /> <span>{Math.ceil(node.fields.readingTime.minutes)} minutes</span></div>
       </Link>
     </Card>

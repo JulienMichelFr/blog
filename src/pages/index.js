@@ -25,6 +25,7 @@ export const query = graphql`
           id
           frontmatter {
             title
+            resume
             date(formatString: "DD MMMM YYYY", locale: "fr")
           }
           fields {
