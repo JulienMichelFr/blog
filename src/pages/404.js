@@ -3,8 +3,8 @@ import { Link } from "gatsby"
 
 const NotFound = () => {
   return <div>
-    Huuu... Looks like you didn't found what you were searching for...
-    <Link to="/">Return home</Link>
+    <h3>404 Not found</h3>
+    <Link to="/">Revenir à l'accueil</Link>
   </div>
 }
 
