@@ -16,6 +16,7 @@
     "build-storybook": "cross-env NODE_ENV=production build-storybook -s public"
   },
   "dependencies": {
+    "@material-ui/core": "^4.8.2",
     "@storybook/addon-knobs": "^5.2.8",
     "babel-plugin-styled-components": "^1.10.6",
     "cross-env": "^6.0.3",

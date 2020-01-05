@@ -4,10 +4,12 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const { BLOG_NAME } = require("./src/utils/consts")
+
 module.exports = {
   siteMetadata: {
-    title: `Data blog`,
-    description: `My personnal blog`,
+    title: BLOG_NAME,
+    description: `Blog personnel où je vais ranger un peu tout ce que je fais`,
     author: `Julien M.`,
   },
   plugins: [
@@ -25,8 +27,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Datablog`,
-        short_name: `Datablog`,
+        name: BLOG_NAME,
+        short_name: BLOG_NAME,
         start_url: `/`,
         background_color: `#6b37bf`,
         theme_color: `#6b37bf`,

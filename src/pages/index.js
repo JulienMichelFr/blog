@@ -1,31 +1,25 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import styled from "styled-components"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Post from "../components/post"
+import { graphql } from "gatsby"
+import BlogList from "../templates/page"
 
-const ThemedLink = styled.div`
-`
-
-export default ({ data }) => (
-  <Layout>
-    <SEO title="Hello there" />
-    <ThemedLink>
-      <div>
-        <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <Post node={node} key={node.id}/>
-        ))}
-      </div>
-    </ThemedLink>
-  </Layout>
-)
+export default props => {
+  const posts = props.data.allMarkdownRemark.edges
+  const postsPerPage = 6
+  const numPages = Math.ceil(posts.length / postsPerPage)
+  const data = {
+    ...props,
+    pageContext: { ...props.pageContext, currentPage: 1, numPages },
+  }
+  return <BlogList {...data} />
+}
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
+  query indexQuery {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      skip: 0
+      limit: 6
+    ) {
       edges {
         node {
           id
@@ -36,7 +30,7 @@ export const query = graphql`
           fields {
             slug
             readingTime {
-                minutes
+              minutes
             }
           }
           excerpt

@@ -7,7 +7,7 @@ const Card = styled.div`
   background-color: white;
   box-shadow: ${props => props.theme.boxShadow};
   border-radius: 2px;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 25px;
   position: relative;
   
