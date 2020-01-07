@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
+    "prebuild": "rimraf ./public",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
@@ -13,7 +14,8 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "storybook": "cross-env NODE_ENV=production start-storybook",
-    "build-storybook": "cross-env NODE_ENV=production build-storybook -s public"
+    "build-storybook": "cross-env NODE_ENV=production build-storybook -s public",
+    "publish": "npm run build && firebase deploy"
   },
   "dependencies": {
     "@material-ui/core": "^4.8.2",
@@ -46,7 +48,8 @@
     "@storybook/addons": "^5.2.8",
     "@storybook/react": "^5.2.8",
     "babel-loader": "^8.0.6",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0"
   },
   "repository": {
     "type": "git",
