@@ -13,6 +13,10 @@ const AppBar = styled.div`
   left: 0;
   right: 0;
   z-index: 2;
+  
+  @media only screen and (max-width : ${props => props.theme.maxWidth}) {
+      padding: 10px;
+  }
 `
 
 const Container = styled.div`
