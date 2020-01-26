@@ -48,6 +48,7 @@ const Header = () => {
         <Link to="/"><AlignTextCenter>{BLOG_NAME} <AiOutlineTool/></AlignTextCenter></Link>
         <Padded>
           <Link to="/page/1">Articles</Link>
+          <Link to="/cv">CV</Link>
           <Link to="/about">À Propos</Link>
         </Padded>
       </Container>
